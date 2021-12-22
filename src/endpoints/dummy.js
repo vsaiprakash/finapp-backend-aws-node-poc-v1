@@ -1,15 +1,12 @@
 
 
-module.exports.dummy = async (event) => {
+module.exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: "Dummy endpoint",
-          input: event,
-        },
-        null,
-        2
+          message: "Dummy endpoint"
+        }
       ),
     };
   };

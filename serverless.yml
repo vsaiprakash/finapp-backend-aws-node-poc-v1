@@ -14,6 +14,11 @@ provider:
   stackName: finapp-backend-aws-node-poc-v1-stack # Use a custom name for the CloudFormation stack
   apiName: finapp-backend-aws-node-poc-v1-api # Use a custom name for the API Gateway API
 
+# package:
+#   patterns:
+#     - '!src/**'
+#     - src/endpoints/**
+
 functions:
   hello:
     handler: handler.hello
@@ -22,8 +27,23 @@ functions:
           path: /
           method: get
   dummy:
-    handler: handler.dummy
+    handler: src/endpoints/dummy.handler
+    name: "${self:service}-${self:provider.stage}" # optional, Deployed Lambda name
+    description: "Dummy Endpoint"
+    # package:
+    #   include:
+    #     - dummy.js
     events: # The Events that trigger this Function
       - http: # REST API endpoint (API Gateway v1)
-          path: / # Path for this endpoint
+          path: dummy # Path for this endpoint
           method: get
+  # openapigeneratortest:
+  #   handler: handler.openapigeneratortest
+  #   package:
+  #     include:
+  #       - handler.js
+  #   runtime: nodejs12.x
+  #   events:
+  #     - http:
+  #         path: openapigeneratortest
+  #         method: get
