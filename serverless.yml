@@ -5,6 +5,10 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: '20201221'
+  stage: dev # Default stage to be used. Default is "dev"
+  region: ap-south-1
+  stackName: finapp-backend-aws-node-poc-v1-stack # Use a custom name for the CloudFormation stack
+  apiName: finapp-backend-aws-node-poc-v1-api # Use a custom name for the API Gateway API
 
 functions:
   hello:
