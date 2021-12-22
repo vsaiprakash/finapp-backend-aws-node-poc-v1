@@ -1,3 +1,17 @@
 tasks:
-  - before: npm install -g serverless
+  - name: Install NPM Serverless Globally
+    command: npm install -g serverless
+  - name: Download AWS CLI & Unzip
+    init: curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+    command: unzip awscliv2.zip
+  - name: Install AWS CLI Package
+    command: sudo ./aws/install
+  - name: Install NPM Modules
+    command: npm install
+
+#   - before: curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+# unzip awscliv2.zip
+# sudo ./aws/install
+
+#   npm install -g serverless
     # init: npm install -g @angular/cli
