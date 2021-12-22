@@ -1,6 +1,10 @@
 service: finapp-backend-aws-node-poc-v1
 frameworkVersion: '2 || 3'
 
+# Plugins for Serverless project
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -13,7 +17,13 @@ provider:
 functions:
   hello:
     handler: handler.hello
-    events:
-      - httpApi:
+    events: # The Events that trigger this Function
+      - httpApi: # HTTP API endpoint (API Gateway v2)
           path: /
+          method: get
+  dummy:
+    handler: handler.dummy
+    events: # The Events that trigger this Function
+      - http: # REST API endpoint (API Gateway v1)
+          path: / # Path for this endpoint
           method: get
