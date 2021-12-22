@@ -111,4 +111,8 @@ serverless offline
 ```
 
 To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+
+## serverless.yml file example
+[serverless.yml](https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml)
+
 # finapp-backend-aws-node-poc-v1
