@@ -8,3 +8,7 @@ tasks:
   - name: Install NPM Global Modules
     command: 
       npm install -g serverless
+
+
+# .gitpod.yml reference:
+# https://www.gitpod.io/docs/config-start-tasks
