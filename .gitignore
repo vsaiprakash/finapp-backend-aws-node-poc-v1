@@ -39,4 +39,9 @@ node_modules
 admin.env
 .env
 _meta
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
 .serverless
