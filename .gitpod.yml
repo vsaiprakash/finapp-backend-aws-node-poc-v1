@@ -5,7 +5,7 @@ tasks:
     init: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     # init: curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
     command: 
-      unzip awscliv2.zip
+      unzip awscliv2.zip &&
       sudo ./aws/install
   # - name: Install AWS CLI Package
   #   command: sudo ./aws/install
