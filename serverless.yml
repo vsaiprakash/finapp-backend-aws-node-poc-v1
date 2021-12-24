@@ -30,6 +30,7 @@ functions:
     handler: src/endpoints/dummy.handler
     name: "${self:service}-${self:provider.stage}" # optional, Deployed Lambda name
     description: "Dummy Endpoint"
+    runtime: nodejs12.x
     # package:
     #   include:
     #     - dummy.js
@@ -37,13 +38,31 @@ functions:
       - http: # REST API endpoint (API Gateway v1)
           path: dummy # Path for this endpoint
           method: get
-  # openapigeneratortest:
-  #   handler: handler.openapigeneratortest
-  #   package:
-  #     include:
-  #       - handler.js
-  #   runtime: nodejs12.x
-  #   events:
-  #     - http:
-  #         path: openapigeneratortest
-  #         method: get
+  get-accounts:
+    handler: src/api/accounts.handler
+    name: "get-accounts"
+    description: "Get Accounts"
+    events:
+      - http:
+          path: accounts
+          method: get
+          authorizer:
+            name: poolToApiGatewayAuthorizer
+            resultTtlInSeconds: 300
+            type: COGNITO_USER_POOLS
+  get-account:
+    handler: src/api/account.handler
+    name: "get-account"
+    description: "Get Account"
+    events:
+      - http:
+          path: account
+          method: get
+  get-daybook:
+    handler: src/api/daybook.handler
+    name: "get-accounts"
+    description: "Get Daybook"
+    events:
+      - http:
+          path: daybook
+          method: get

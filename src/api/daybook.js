@@ -3,7 +3,7 @@ module.exports.handler = async (event) => {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: "Dummy endpoint"
+          message: "Get Accounts"
         }
       ),
     };
